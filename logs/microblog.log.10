@@ -1,4 +1,4 @@
-2025-03-21 13:31:00,775 ERROR: Exception on /users [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
+2025-03-21 13:33:35,610 ERROR: Exception on /users [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
 Traceback (most recent call last):
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,33 +12,22 @@ Traceback (most recent call last):
     return func(*args, **kwargs)
   File "/home/student/DBWE/app/routes.py", line 153, in user_list
     return render_template('user_list.html', title='Users', users=users)
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/student/DBWE/app/templates/user_list.html", line 2, in top-level template code
-    {% extends "base.html" %}
-  File "/home/student/DBWE/app/templates/base.html", line 2, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/home/student/DBWE/app/templates/base.html", line 49, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/home/student/DBWE/app/templates/user_list.html", line 13, in block 'app_content'
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-03-21 13:31:05,546 ERROR: Exception on /users [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 59, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 95, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: user_list.html
+2025-03-21 14:07:21,866 ERROR: Exception on /user/nico [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
 Traceback (most recent call last):
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -50,35 +39,26 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/student/DBWE/app/routes.py", line 153, in user_list
-    return render_template('user_list.html', title='Users', users=users)
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
+  File "/home/student/DBWE/app/routes.py", line 82, in user
+    return render_template('user.html', user=user, posts=posts.items, next_url=next_url, prev_url=prev_url, form=form)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/student/DBWE/app/templates/user_list.html", line 2, in top-level template code
-    {% extends "base.html" %}
-  File "/home/student/DBWE/app/templates/base.html", line 2, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/home/student/DBWE/app/templates/base.html", line 49, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/home/student/DBWE/app/templates/user_list.html", line 13, in block 'app_content'
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2025-03-21 13:31:41,994 ERROR: Exception on /users [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
+  File "/home/student/DBWE/app/templates/user.html", line 36, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2025-03-21 14:07:22,637 ERROR: Exception on /user/nico [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
 Traceback (most recent call last):
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -90,30 +70,22 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/student/DBWE/app/routes.py", line 153, in user_list
-    return render_template('user_list.html', title='Users', users=users)
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
+  File "/home/student/DBWE/app/routes.py", line 82, in user
+    return render_template('user.html', user=user, posts=posts.items, next_url=next_url, prev_url=prev_url, form=form)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
   File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/student/DBWE/app/templates/user_list.html", line 2, in top-level template code
-  File "/home/student/DBWE/app/templates/base.html", line 2, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/home/student/DBWE/app/templates/base.html", line 49, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/home/student/DBWE/app/templates/user_list.html", line 13, in block 'app_content'
-  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
+  File "/home/student/DBWE/app/templates/user.html", line 36, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
