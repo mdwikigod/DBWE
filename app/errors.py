@@ -20,4 +20,4 @@ def internal_error(error):
 		response = jsonify( {'error': 'Interner Server Error'} )
 		response.status_code = 500
 		return response
-return render_template('500.html'),500
+	return render_template('500.html'),500

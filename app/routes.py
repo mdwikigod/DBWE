@@ -145,3 +145,9 @@ def explore():
 	prev_url = url_for('explore', page=posts.prev_num) \
 		if posts.has_prev else None
 	return render_template('index.html', title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/users')
+@login_required
+def user_list():
+	users = User.query.all()
+	return render_template('user_list.html', title='Users', users=users)

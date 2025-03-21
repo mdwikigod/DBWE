@@ -1,119 +1,29 @@
-2025-03-19 00:07:07,240 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 00:07:21,600 ERROR: Exception on /edit_profile [POST] [in C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py:1454]
+2025-03-21 13:33:36,253 ERROR: Exception on /users [GET] [in /home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py:1454]
 Traceback (most recent call last):
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\neggm\DBWE\app\routes.py", line 84, in edit_profile
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
-    self._prepare_impl()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\session.py", line 3444, in flush
-    self._flush(objects)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\session.py", line 3584, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
-    raise exception
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\session.py", line 3544, in _flush
-    flush_context.execute()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\persistence.py", line 237, in save_obj
-    _emit_update_statements(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1001, in _emit_update_statements
-    c = connection._execute_20(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
-    raise exception
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('nico', '', 2)]
-(Background on this error at: https://sqlalche.me/e/14/gkpj)
-2025-03-19 00:17:02,172 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 00:18:37,720 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 00:23:18,909 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 00:28:22,084 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 00:28:39,539 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:45:10,468 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:47:19,507 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:49:41,147 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:49:50,917 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:51:54,528 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:52:10,258 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:52:19,578 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 22:58:44,334 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:01:47,446 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:04:09,640 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:06:34,621 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:08:15,634 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:12:24,603 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:29:45,810 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:30:48,164 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:40:35,298 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:49:45,549 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-19 23:54:13,392 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 00:00:25,429 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 00:00:57,415 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 00:01:25,891 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 00:01:40,865 ERROR: Exception on /explore [GET] [in C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\neggm\DBWE\myenv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\neggm\DBWE\app\routes.py", line 131, in explore
-    posts = Post.query.oder_by(Post.timestamp.desc()).all()
-AttributeError: 'BaseQuery' object has no attribute 'oder_by'
-2025-03-20 00:02:08,066 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 14:16:43,770 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 14:25:30,444 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 14:26:05,988 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 14:30:47,514 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 14:36:24,086 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:27]
-2025-03-20 14:41:15,107 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:29]
-2025-03-20 14:52:40,816 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:29]
-2025-03-20 15:08:22,397 INFO: Microblog startup [in C:\Users\neggm\DBWE\app\__init__.py:29]
+  File "/home/student/DBWE/app/routes.py", line 153, in user_list
+    return render_template('user_list.html', title='Users', users=users)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 59, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/student/DBWE/myenv/lib/python3.9/site-packages/flask/templating.py", line 95, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: user_list.html
