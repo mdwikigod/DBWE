@@ -1,0 +1,7 @@
+<!-- app/templates/500.html -->
+{% extends "base.html" %}
+{% block app_content %}
+	<h1>Ein unerwarteter Fehler ist aufgetreten</h1>
+	<p>Der Administrator wurde informiert. Entschuldigen Sie die Unanehmlichkeiten</p>
+	<p><a href="{{ url_for('index') }}">Zurück</a></p>
+{% endblock %}
